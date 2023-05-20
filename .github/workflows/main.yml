@@ -1,0 +1,44 @@
+name: Build and Deploy Helm Chart
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.x
+          
+      - name: Check Working Directory
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const fs = require('fs');
+            console.log(fs.readdirSync('.'));
+
+      - name: Build Helm Chart
+        run: |
+          # Replace this command with your actual build command
+          helm package . -d ./charts --version 1.0.0
+
+      - name: Generate index.yaml
+        run: |
+          # Replace this command with your actual index generation command
+          helm repo index --url https://dyremix.github.io/Elibrary_k8s  .
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
+          enable_jekyll: true
