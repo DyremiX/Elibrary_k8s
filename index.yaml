@@ -3,7 +3,7 @@ entries:
   elib:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-20T14:23:16.711114861Z"
+    created: "2023-05-20T14:30:10.798473728Z"
     dependencies:
     - name: rabbitmq
       repository: https://charts.bitnami.com/bitnami
@@ -12,19 +12,36 @@ entries:
       repository: https://charts.bitnami.com/bitnami
       version: 12.5.1
     description: A Helm chart for Kubernetes
-    digest: d03360634d287c41a0babe3f8dd299acab7af840c78767a91272cca60927c04f
+    digest: 084f069c61fc4c8f6742b8847e065ac12dd4d1f9d8f227ccafa1532543683197
     name: elib
     type: application
     urls:
     - https://dyremix.github.io/Elibrary_k8s/charts/elib-1.0.0.tgz
     version: 1.0.0
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-05-20T14:30:10.786729422Z"
+    dependencies:
+    - name: rabbitmq
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.15.2
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.5.1
+    description: A Helm chart for Kubernetes
+    digest: a7f6b3d435870906eef3a8c0199d82e87db1ca75265b99ba6f2ba8511d5d416f
+    name: elib
+    type: application
+    urls:
+    - https://dyremix.github.io/Elibrary_k8s/elib-0.1.0.tgz
+    version: 0.1.0
   postgresql:
   - annotations:
       category: Database
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 15.3.0
-    created: "2023-05-20T14:23:16.715450103Z"
+    created: "2023-05-20T14:30:10.802936293Z"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -59,7 +76,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 3.11.16
-    created: "2023-05-20T14:23:16.719285739Z"
+    created: "2023-05-20T14:30:10.807130459Z"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -85,4 +102,4 @@ entries:
     urls:
     - https://dyremix.github.io/Elibrary_k8s/charts/rabbitmq-11.15.2.tgz
     version: 11.15.2
-generated: "2023-05-20T14:23:16.700242958Z"
+generated: "2023-05-20T14:30:10.769700357Z"
