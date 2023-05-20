@@ -1,12 +1,30 @@
 apiVersion: v1
 entries:
+  elib:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-05-20T16:29:08.3450705+02:00"
+    dependencies:
+    - name: rabbitmq
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.15.2
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.5.1
+    description: A Helm chart for Kubernetes
+    digest: a7f6b3d435870906eef3a8c0199d82e87db1ca75265b99ba6f2ba8511d5d416f
+    name: elib
+    type: application
+    urls:
+    - elib-0.1.0.tgz
+    version: 0.1.0
   postgresql:
   - annotations:
       category: Database
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 15.3.0
-    created: "2023-05-16T16:11:58.2124577+02:00"
+    created: "2023-05-20T16:29:08.3487796+02:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -41,7 +59,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 3.11.16
-    created: "2023-05-16T16:11:58.217247+02:00"
+    created: "2023-05-20T16:29:08.3525277+02:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -67,4 +85,4 @@ entries:
     urls:
     - charts/rabbitmq-11.15.2.tgz
     version: 11.15.2
-generated: "2023-05-16T16:11:58.2094605+02:00"
+generated: "2023-05-20T16:29:08.3369662+02:00"
