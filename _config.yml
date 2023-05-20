@@ -1,0 +1,4 @@
+include:
+  - "*.tgz"
+  - "*.yaml"
+  - "index.html"
