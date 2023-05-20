@@ -34,8 +34,7 @@ jobs:
       - name: Generate index.yaml
         run: |
           # Replace this command with your actual index generation command
-          helm repo index  .
-##--url https://dyremix.github.io/Elibrary_k8s
+          helm repo index --url https://dyremix.github.io/Elibrary_k8s  .
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
