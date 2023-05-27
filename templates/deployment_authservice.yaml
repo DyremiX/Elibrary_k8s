@@ -17,7 +17,17 @@ spec:
         image: dyremix/elib-authservice:latest
         ports:
         - containerPort: 80
-
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Development"
+        - name: ConnectionStrings__PostgresAuthDb
+          value: "Server=elib-postgres.postgres.database.azure.com;Port=5432;Database=postgres;User Id=PKadmin;Password=Biblioteka1234;"
+        - name: DOCKER_REGISTRY_SERVER_URL
+          value: "https://index.docker.io/v1"
+        - name: Secrets__SecurityKey
+          value: "asfasfASFASF325%@#%#@"
+        - name: WEBSITES_ENABLE_APP_SERVICE_STORAGE
+          value: "false"
 ---
 
 apiVersion: v1

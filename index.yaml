@@ -3,7 +3,7 @@ entries:
   elib:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-20T14:30:10.798473728Z"
+    created: "2023-05-27T18:18:56.586158521Z"
     dependencies:
     - name: rabbitmq
       repository: https://charts.bitnami.com/bitnami
@@ -12,7 +12,7 @@ entries:
       repository: https://charts.bitnami.com/bitnami
       version: 12.5.1
     description: A Helm chart for Kubernetes
-    digest: 084f069c61fc4c8f6742b8847e065ac12dd4d1f9d8f227ccafa1532543683197
+    digest: ff3ac54f2ee68c6fef6ebb70b3bbe5f0136e63e4b01ac315371e8097e22abe08
     name: elib
     type: application
     urls:
@@ -20,7 +20,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-20T14:30:10.786729422Z"
+    created: "2023-05-27T18:18:56.576393893Z"
     dependencies:
     - name: rabbitmq
       repository: https://charts.bitnami.com/bitnami
@@ -41,7 +41,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 15.3.0
-    created: "2023-05-20T14:30:10.802936293Z"
+    created: "2023-05-27T18:18:56.598806626Z"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -76,7 +76,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 3.11.16
-    created: "2023-05-20T14:30:10.807130459Z"
+    created: "2023-05-27T18:18:56.602936895Z"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -102,4 +102,4 @@ entries:
     urls:
     - https://dyremix.github.io/Elibrary_k8s/charts/rabbitmq-11.15.2.tgz
     version: 11.15.2
-generated: "2023-05-20T14:30:10.769700357Z"
+generated: "2023-05-27T18:18:56.565454975Z"
