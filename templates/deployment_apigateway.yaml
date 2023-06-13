@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: e-library-apigateway-statefulset
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: e-library-apigateway
+  template:
+    metadata:
+      labels:
+        app: e-library-apigateway
+    spec:
+      containers:
+      - name: e-library-apigateway
+        image: "{{ .Values.images.apigateway }}"
+        ports:
+        - containerPort: 80
+        env:
+        - name: DOCKER_REGISTRY_SERVER_PASSWORD
+          value: ""
+        - name: DOCKER_REGISTRY_SERVER_USERNAME
+          value: ""
+        - name: DOCKER_REGISTRY_SERVER_URL
+          value: "{{ .Values.environment.dockerURL.registryURL }}"
+        - name: WEBSITES_ENABLE_APP_SERVICE_STORAGE
+          value: "false"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: e-library-apigateway-service
+spec:
+  type: NodePort
+  selector:
+    app: e-library-apigateway
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30000

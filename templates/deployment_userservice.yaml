@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: e-library-auth-service-statefulset
+  name: e-library-user-service-statefulset
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: e-library-auth-service
+      app: e-library-user-service
   template:
     metadata:
       labels:
-        app: e-library-auth-service
+        app: e-library-user-service
     spec:
       containers:
-      - name: e-library-auth-service
-        image: "{{ .Values.images.auth_service }}"
+      - name: e-library-user-service
+        image: "{{ .Values.images.user_service }}"
         ports:
         - containerPort: 80
         livenessProbe:
@@ -30,6 +30,10 @@ spec:
           value: "Development"
         - name: ConnectionStrings__PostgresAuthDb
           value: "{{ .Values.environment.database.connectionString }}"
+        - name: DOCKER_REGISTRY_SERVER_PASSWORD
+          value: ""
+        - name: DOCKER_REGISTRY_SERVER_USERNAME
+          value: ""
         - name: DOCKER_REGISTRY_SERVER_URL
           value: "{{ .Values.environment.dockerURL.registryURL }}"
         - name: Secrets__SecurityKey
@@ -37,17 +41,16 @@ spec:
         - name: WEBSITES_ENABLE_APP_SERVICE_STORAGE
           value: "false"
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
-  name: e-library-auth-service-service
+  name: e-library-user-service-service
 spec:
   type: NodePort
   selector:
-    app: e-library-auth-service
+    app: e-library-user-service
   ports:
   - protocol: TCP
     port: 80
     targetPort: 80
-    nodePort: 30001
+    nodePort: 30003
