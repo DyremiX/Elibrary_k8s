@@ -1,9 +1,6 @@
 dependencies:
-- name: rabbitmq
-  repository: https://charts.bitnami.com/bitnami
-  version: 11.15.2
-- name: postgresql
-  repository: https://charts.bitnami.com/bitnami
-  version: 12.5.1
-digest: sha256:267f8e1bafd9992a32d60182dfee3a92ae81a5b7f6071f507351649bad895979
-generated: "2023-05-14T23:45:08.0651821+02:00"
+- name: prometheus
+  repository: https://prometheus-community.github.io/helm-charts
+  version: 22.6.3
+digest: sha256:d0ce770d99ba88630dd66b2d49947834eec71eaf75b01eced3c630fbfff1adc3
+generated: "2023-06-19T22:40:51.150071+02:00"

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: e-library-user-service-statefulset
+  name: e-library-user-statefulset
 spec:
   replicas: 1
   selector:
@@ -17,6 +17,7 @@ spec:
         image: "{{ .Values.images.user_service }}"
         ports:
         - containerPort: 80
+        - containerPort: 1234
         livenessProbe:
           httpGet:
             path: /WeatherForecast
@@ -44,13 +45,17 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: e-library-user-service-service
+  name: e-library-user-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: e-library-user-service
   ports:
-  - protocol: TCP
+  - name: main
+    protocol: TCP
     port: 80
     targetPort: 80
-    nodePort: 30003
+  - name: metrics
+    protocol: TCP
+    port: 1234
+    targetPort: 1234
