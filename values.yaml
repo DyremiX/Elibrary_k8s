@@ -13,3 +13,15 @@ environment:
     securityKey: "asfasfASFASF325%@#%#@"
   ServiceBus:
     "Endpoint=sb://azureservicebusforelib.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=NdDqokBDBN8QAQoKWxpL0TappKNsOVPmr+ASbKfPXSw="
+
+prometheus:
+  serverFiles:
+    prometheus.yml:
+          scrape_configs:
+          - job_name: basic_metrics
+            static_configs:
+              - targets:
+                - e-library-auth-service:1234
+                - e-library-book-service:1234
+                - e-library-user-service:1234
+                - e-library-apigateway-service:1234

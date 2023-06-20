@@ -17,6 +17,7 @@ spec:
         image: "{{ .Values.images.apigateway }}"
         ports:
         - containerPort: 80
+        - containerPort: 1234
         env:
         - name: DOCKER_REGISTRY_SERVER_PASSWORD
           value: ""
@@ -32,11 +33,15 @@ kind: Service
 metadata:
   name: e-library-apigateway-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
-    app: e-library-apigateway
+    app: e-library-apigateway-service
   ports:
-  - protocol: TCP
+  - name: main
+    protocol: TCP
     port: 80
     targetPort: 80
-    nodePort: 30000
+  - name: metrics
+    protocol: TCP
+    port: 1234
+    targetPort: 1234

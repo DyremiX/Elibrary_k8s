@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: e-library-auth-service-statefulset
+  name: e-library-auth-statefulset
 spec:
   replicas: 1
   selector:
@@ -17,6 +17,7 @@ spec:
         image: "{{ .Values.images.auth_service }}"
         ports:
         - containerPort: 80
+        - containerPort: 1234
         livenessProbe:
           httpGet:
             path: /WeatherForecast
@@ -37,17 +38,20 @@ spec:
         - name: WEBSITES_ENABLE_APP_SERVICE_STORAGE
           value: "false"
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
-  name: e-library-auth-service-service
+  name: e-library-auth-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: e-library-auth-service
   ports:
-  - protocol: TCP
+  - name: main
+    protocol: TCP
     port: 80
     targetPort: 80
-    nodePort: 30001
+  - name: metrics
+    protocol: TCP
+    port: 1234
+    targetPort: 1234

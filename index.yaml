@@ -3,9 +3,13 @@ entries:
   elib:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-06-13T19:48:17.560676779Z"
+    created: "2023-06-20T19:25:29.017862249Z"
+    dependencies:
+    - name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 22.6.3
     description: A Helm chart for Kubernetes
-    digest: 83cc9f9d42aeddca3fbc485f2c2a43e7d8119dcaa09e44c64fa8972598861977
+    digest: 2f928a4b0c26432238a1a36532ac87178f35db983ea56dd59cb8d5c99fc7ba75
     name: elib
     type: application
     urls:
@@ -13,7 +17,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-06-13T19:48:17.554182845Z"
+    created: "2023-06-20T19:25:29.00715138Z"
     dependencies:
     - name: rabbitmq
       repository: https://charts.bitnami.com/bitnami
@@ -28,4 +32,62 @@ entries:
     urls:
     - https://dyremix.github.io/Elibrary_k8s/elib-0.1.0.tgz
     version: 0.1.0
-generated: "2023-06-13T19:48:17.544575843Z"
+  prometheus:
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/prometheus-community/helm-charts
+        - name: Upstream Project
+          url: https://github.com/prometheus/prometheus
+    apiVersion: v2
+    appVersion: v2.44.0
+    created: "2023-06-20T19:25:29.026568286Z"
+    dependencies:
+    - condition: alertmanager.enabled
+      name: alertmanager
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 0.30.*
+    - condition: kube-state-metrics.enabled
+      name: kube-state-metrics
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 4.30.*
+    - condition: prometheus-node-exporter.enabled
+      name: prometheus-node-exporter
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 4.8.*
+    - condition: prometheus-pushgateway.enabled
+      name: prometheus-pushgateway
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 2.0.*
+    description: Prometheus is a monitoring system and time series database.
+    digest: ffed999b37a85fbba214fa1b11ed5449b49c3ed0f1fb283684f86b9de0ada82f
+    home: https://prometheus.io/
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    keywords:
+    - monitoring
+    - prometheus
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: gianrubio@gmail.com
+      name: gianrubio
+    - email: zanhsieh@gmail.com
+      name: zanhsieh
+    - email: miroslav.hadzhiev@gmail.com
+      name: Xtigyro
+    - email: naseem@transit.app
+      name: naseemkullah
+    - email: rootsandtrees@posteo.de
+      name: zeritti
+    name: prometheus
+    sources:
+    - https://github.com/prometheus/alertmanager
+    - https://github.com/prometheus/prometheus
+    - https://github.com/prometheus/pushgateway
+    - https://github.com/prometheus/node_exporter
+    - https://github.com/kubernetes/kube-state-metrics
+    type: application
+    urls:
+    - https://dyremix.github.io/Elibrary_k8s/charts/prometheus-22.6.3.tgz
+    version: 22.6.3
+generated: "2023-06-20T19:25:28.996096206Z"
