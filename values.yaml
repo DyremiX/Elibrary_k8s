@@ -2,6 +2,8 @@ images:
   auth_service: "dyremix/elib-authservice:latest"
   book_service: "dyremix/elib-bookservice:latest"
   user_service: "dyremix/elib-userservice:latest"
+  news_service: "dyremix/elib-newsservice:latest"
+  borrowing_service: "dyremix/elib-borrowingservice:latest"
   apigateway: "dyremix/elib-apigateway:latest"
 
 environment:
@@ -21,7 +23,9 @@ prometheus:
           - job_name: basic_metrics
             static_configs:
               - targets:
-                - e-library-auth-service:1234
-                - e-library-book-service:1234
-                - e-library-user-service:1234
-                - e-library-apigateway-service:1234
+                - e-library-auth-service
+                - e-library-book-service
+                - e-library-user-service
+                # - e-library-news-service
+                - e-library-apigateway-service
+                - e-library-borrowing-service

@@ -29,10 +29,14 @@ spec:
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: "Development"
+        - name: AzureServiceBusConnectionString
+          value: "{{ .Values.environment.ServiceBus }}"
         - name: ConnectionStrings__PostgresAuthDb
           value: "{{ .Values.environment.database.connectionString }}"
         - name: DOCKER_REGISTRY_SERVER_URL
           value: "{{ .Values.environment.dockerURL.registryURL }}"
+        - name: Flags_UserRabbitMq
+          value: "0"
         - name: Secrets__SecurityKey
           value: "{{ .Values.environment.secrets.securityKey }}"
         - name: WEBSITES_ENABLE_APP_SERVICE_STORAGE

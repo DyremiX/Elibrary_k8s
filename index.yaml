@@ -3,13 +3,13 @@ entries:
   elib:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-06-20T19:25:29.017862249Z"
+    created: "2023-07-01T00:58:33.249679906Z"
     dependencies:
     - name: prometheus
       repository: https://prometheus-community.github.io/helm-charts
       version: 22.6.3
     description: A Helm chart for Kubernetes
-    digest: 2f928a4b0c26432238a1a36532ac87178f35db983ea56dd59cb8d5c99fc7ba75
+    digest: 0dfdc927b0fa4fc52e3cf628fc658a9c68c60671a8c07a45b669dafad7fe3263
     name: elib
     type: application
     urls:
@@ -17,7 +17,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-06-20T19:25:29.00715138Z"
+    created: "2023-07-01T00:58:33.239533633Z"
     dependencies:
     - name: rabbitmq
       repository: https://charts.bitnami.com/bitnami
@@ -42,7 +42,7 @@ entries:
           url: https://github.com/prometheus/prometheus
     apiVersion: v2
     appVersion: v2.44.0
-    created: "2023-06-20T19:25:29.026568286Z"
+    created: "2023-07-01T00:58:33.257041659Z"
     dependencies:
     - condition: alertmanager.enabled
       name: alertmanager
@@ -90,4 +90,4 @@ entries:
     urls:
     - https://dyremix.github.io/Elibrary_k8s/charts/prometheus-22.6.3.tgz
     version: 22.6.3
-generated: "2023-06-20T19:25:28.996096206Z"
+generated: "2023-07-01T00:58:33.223599719Z"
