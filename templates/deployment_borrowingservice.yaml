@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: e-library-user-statefulset
+  name: e-library-borrowing-statefulset
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: e-library-user-service
+      app: e-library-borrowing-service
   template:
     metadata:
       labels:
-        app: e-library-user-service
+        app: e-library-borrowing-service
     spec:
       containers:
-      - name: e-library-user-service
-        image: "{{ .Values.images.user_service }}"
+      - name: e-library-borrowing-service
+        image: "{{ .Values.images.borrowing_service }}"
         ports:
         - containerPort: 80
         - containerPort: 1234
@@ -29,14 +29,18 @@ spec:
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: "Development"
-        - name: ConnectionStrings__PostgresResourceDb
+        - name: AzureServiceBusConnectionString
+          value: "{{ .Values.environment.ServiceBus }}"
+        - name: ConnectionStrings__PostgresAuthDb
           value: "{{ .Values.environment.database.connectionString }}"
+        - name: DOCKER_REGISTRY_SERVER_URL
+          value: "{{ .Values.environment.dockerURL.registryURL }}"
         - name: DOCKER_REGISTRY_SERVER_PASSWORD
           value: ""
         - name: DOCKER_REGISTRY_SERVER_USERNAME
           value: ""
-        - name: DOCKER_REGISTRY_SERVER_URL
-          value: "{{ .Values.environment.dockerURL.registryURL }}"
+        - name: Flags__UserRabbitMq
+          value: "0"
         - name: Secrets__SecurityKey
           value: "{{ .Values.environment.secrets.securityKey }}"
         - name: WEBSITES_ENABLE_APP_SERVICE_STORAGE
@@ -45,11 +49,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: e-library-user-service
+  name: e-library-borrowing-service
 spec:
   type: ClusterIP
   selector:
-    app: e-library-user-service
+    app: e-library-borrowing-service
   ports:
   - name: main
     protocol: TCP

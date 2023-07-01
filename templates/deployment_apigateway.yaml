@@ -6,14 +6,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: e-library-apigateway
+      app: e-library-apigateway-service
   template:
     metadata:
       labels:
-        app: e-library-apigateway
+        app: e-library-apigateway-service
     spec:
       containers:
-      - name: e-library-apigateway
+      - name: e-library-apigateway-service
         image: "{{ .Values.images.apigateway }}"
         ports:
         - containerPort: 80

@@ -29,22 +29,22 @@ spec:
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: "Staging"
+        - name: AzureServiceBusConnectionString
+          value: "{{ .Values.environment.ServiceBus }}"
         - name: ConnectionStrings__PostgresAuthDb
           value: "{{ .Values.environment.database.connectionString }}"
         - name: DOCKER_ENABLE_CI
           value: "true"
-        - name: Flags__EnableUserFriendlyErrorMessages
-          value: "1"
         - name: DOCKER_REGISTRY_SERVER_URL
           value: "{{ .Values.environment.dockerURL.registryURL }}"
+        - name: Flags__EnableUserFriendlyErrorMessages
+          value: "1"
+        - name: Flags__UserRabbitMq
+          value: "0"
         - name: Secrets__SecurityKey
           value: "{{ .Values.environment.secrets.securityKey }}"
         - name: WEBSITES_ENABLE_APP_SERVICE_STORAGE
           value: "false"
-        - name: Flags__UserRabbitMq
-          value: "0"
-        - name: AzureServiceBusConnectionString
-          value: "{{ .Values.environment.ServiceBus }}"
 ---
 apiVersion: v1
 kind: Service

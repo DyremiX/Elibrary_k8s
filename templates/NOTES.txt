@@ -4,9 +4,9 @@ The Prometheus server can be accessed via port 80 on the following DNS name from
 prometheus-server.default.svc.cluster.local
 
 Get the PushGateway URL by running these commands in the same shell:
-  export POD_NAME=$(kubectl get pods --namespace default -l "app=prometheus-push
-  kubectl --namespace default port-forward $POD_NAME 9091)
+  kubectl --namespace default port-forward [Tutaj nazwa poda serwera prometheusa] 9091)
 
 Get the Prometheus server URL by running these commands in the same shell:
-  export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/n
-  kubectl --namespace default port-forward $POD_NAME 9090)
+  kubectl --namespace default port-forward [Tutaj nazwa poda serwera prometheusa] 9090)
+
+To access microservices use kubectl proxy
